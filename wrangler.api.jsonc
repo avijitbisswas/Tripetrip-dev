@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tripetrip-api",
+  "account_id": "REPLACE_WITH_CF_ACCOUNT_ID",
+  "zone_id": "REPLACE_WITH_CF_ZONE_ID",
+  "main": "apps/api-worker/src/index.ts",
+  "compatibility_date": "2026-05-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "APP_ENV": "production",
+    "CORS_ORIGIN": "https://tripetrip-web.pages.dev"
+  }
+}

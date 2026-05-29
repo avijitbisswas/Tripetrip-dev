@@ -1,0 +1,17 @@
+import { FeaturePage } from '../../../modules/shared/FeaturePage';
+import { travelerFeatures } from '../../../modules/shared/featureCatalog';
+import { AppShell } from '../../../modules/shared/AppShell';
+
+export function generateStaticParams() {
+  return [{ id: 'booking_demo_001' }];
+}
+
+export const dynamicParams = false;
+
+export default function BookingPage() {
+  return (
+    <AppShell>
+      <FeaturePage feature={travelerFeatures.booking} />
+    </AppShell>
+  );
+}
