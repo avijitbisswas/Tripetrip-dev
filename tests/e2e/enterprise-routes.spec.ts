@@ -1,12 +1,24 @@
 import { expect, test } from '@playwright/test';
 
-test('traveler surface presents the Travel OS marketplace', async ({ page }) => {
+test('traveler surface opens as a booking marketplace', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
 
-  await expect(page.getByText('Travel Marketplace + Travel OS')).toBeVisible();
-  await expect(page.getByRole('heading', { name: /Book trusted travel services/i })).toBeVisible();
-  await expect(page.getByText('AI trip planner')).toBeVisible();
-  await expect(page.getByText('Escrow payments')).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Book stays, trips, taxis, and treks/i })).toBeVisible();
+  await expect(page.getByLabel('Destination')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Riverside Himalayan Homestay' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Book now Riverside Himalayan Homestay/i })).toHaveAttribute(
+    'href',
+    '/listing/listing_riverside_homestay',
+  );
+});
+
+test('traveler can move from a listing to booking details', async ({ page }) => {
+  await page.goto('/listing/listing_riverside_homestay', { waitUntil: 'domcontentloaded' });
+
+  await expect(page.getByRole('heading', { name: 'Riverside Himalayan Homestay' })).toBeVisible();
+  await expect(page.getByText('Escrow protected')).toBeVisible();
+  await expect(page.getByRole('link', { name: /Reserve now/i })).toHaveAttribute('href', '/bookings/booking_demo_001');
 });
 
 test('provider dashboard presents operating system modules', async ({ page }) => {

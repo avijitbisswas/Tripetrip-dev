@@ -6,7 +6,7 @@ const PID_FILE = path.resolve('.playwright-server.pid');
 const HOST = '127.0.0.1';
 const PORT = '3200';
 const BASE_URL = `http://${HOST}:${PORT}`;
-const HEALTH_MARKER = 'Travel Marketplace + Travel OS';
+const HEALTH_MARKER = 'Book stays, trips, taxis, and treks';
 
 async function healthCheck() {
   const controller = new AbortController();

@@ -2,8 +2,15 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 const navItems = [
-  { href: '/', label: 'Traveler' },
-  { href: '/provider/dashboard', label: 'Provider OS' },
+  { href: '/', label: 'Stays' },
+  { href: '/trip-planner', label: 'Trips' },
+  { href: '/search', label: 'Taxis' },
+  { href: '/discover', label: 'Treks' },
+  { href: '/wishlist', label: 'Wishlist' },
+];
+
+const utilityItems = [
+  { href: '/provider/dashboard', label: 'List your property' },
   { href: '/admin', label: 'Admin' },
 ];
 
@@ -33,8 +40,15 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Link href="/" style={{ fontWeight: 800, letterSpacing: '-0.03em' }}>
             TripETrip
           </Link>
-          <nav style={{ display: 'flex', gap: 12, flexWrap: 'wrap', fontSize: 14, fontWeight: 700 }}>
+          <nav style={{ display: 'flex', gap: 14, flexWrap: 'wrap', fontSize: 14, fontWeight: 800 }}>
             {navItems.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <nav style={{ display: 'flex', gap: 10, flexWrap: 'wrap', fontSize: 12, fontWeight: 700, color: '#64748b' }}>
+            {utilityItems.map((item) => (
               <Link key={item.href} href={item.href}>
                 {item.label}
               </Link>
