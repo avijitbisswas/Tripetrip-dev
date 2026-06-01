@@ -31,6 +31,8 @@ Deploy command:
 npx wrangler deploy
 ```
 
+`wrangler.jsonc` also defines `build.command = "npm run build:cloudflare"`, so a Git-connected Cloudflare deploy command of `npx wrangler deploy` will generate `apps/web/.open-next/worker.js` before publishing.
+
 Required config:
 
 - `wrangler.jsonc`

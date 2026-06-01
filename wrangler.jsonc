@@ -4,6 +4,9 @@
   "main": "apps/web/.open-next/worker.js",
   "compatibility_date": "2026-05-28",
   "compatibility_flags": ["nodejs_compat"],
+  "build": {
+    "command": "npm run build:cloudflare"
+  },
   "assets": {
     "directory": "apps/web/.open-next/assets",
     "binding": "ASSETS"

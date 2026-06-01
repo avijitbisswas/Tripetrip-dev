@@ -14,6 +14,7 @@ describe('Cloudflare deployment readiness', () => {
     expect(wrangler).toContain('"main": "apps/web/.open-next/worker.js"');
     expect(wrangler).toContain('"directory": "apps/web/.open-next/assets"');
     expect(wrangler).toContain('"nodejs_compat"');
+    expect(wrangler).toContain('"command": "npm run build:cloudflare"');
     expect(packageJson.scripts['build:cloudflare']).toContain('opennextjs-cloudflare build');
     expect(packageJson.scripts['deploy:cloudflare']).toContain('wrangler deploy');
   });
