@@ -4,6 +4,11 @@ test('traveler surface opens as a booking marketplace', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
 
   await expect(page.getByRole('heading', { name: /Book stays, trips, taxis, and treks/i })).toBeVisible();
+  await expect(page.getByRole('tab', { name: 'Hotels' })).toBeVisible();
+  await expect(page.getByRole('tab', { name: 'Trips' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Rishikesh', exact: true })).toBeVisible();
+  await expect(page.getByText('Popular stays')).toBeVisible();
+  await expect(page.getByText('Weekend trip ideas')).toBeVisible();
   await expect(page.getByLabel('Destination')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Search' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Riverside Himalayan Homestay' })).toBeVisible();
