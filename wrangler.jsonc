@@ -1,8 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "tripetrip-web",
-  "account_id": "REPLACE_WITH_CF_ACCOUNT_ID",
-  "zone_id": "REPLACE_WITH_CF_ZONE_ID",
   "main": "apps/web/.open-next/worker.js",
   "compatibility_date": "2026-05-28",
   "compatibility_flags": ["nodejs_compat"],

@@ -43,7 +43,6 @@ Required config:
 Required Cloudflare values:
 
 - `CF_ACCOUNT_ID` -> Cloudflare account ID
-- `CF_ZONE_ID` -> Cloudflare zone ID for any custom domain routes
 - `CF_API_TOKEN` -> Cloudflare API token for Wrangler deployment
 - `NEXT_PUBLIC_API_BASE_URL` -> deployed API base URL for the frontend
 - `CORS_ORIGIN` -> deployed frontend origin for the API worker

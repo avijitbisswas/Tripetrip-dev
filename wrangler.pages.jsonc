@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "tripetrip-web",
-  "account_id": "REPLACE_WITH_CF_ACCOUNT_ID",
   "compatibility_date": "2026-05-28",
   "pages_build_output_dir": "apps/web/out",
   "vars": {

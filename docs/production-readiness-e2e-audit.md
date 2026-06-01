@@ -51,7 +51,7 @@ Test TripETrip end to end, identify features that work and do not work, list cre
 - Enterprise CI workflow was missing and has been added. Remaining CI risk: GitHub-hosted CI has not been run remotely yet.
 - Web app is mostly static/catalog pages. Most production workflows are not implemented in the browser: auth, search filters, maps, booking checkout, payment capture/refunds, KYC upload/review, moderation queues, admin actions, support inbox, safety/SOS, RBAC-protected routes, and real data fetching.
 - Dynamic web routes such as `/listing/[id]`, `/bookings/[id]`, and `/provider/[slug]` render static/demo content rather than loading by the requested id/slug.
-- Cloudflare deployment configs still contain account/zone placeholders and have an incomplete production secrets strategy.
+- Cloudflare deployment configs no longer contain committed account/zone placeholders. Remaining deployment risk: linked Cloudflare project settings must use the correct build command/output directory and production vars/secrets still need live values.
 - API Worker now honors configured `CORS_ORIGIN` in tested runtime paths. Remaining CORS risk: deployed Cloudflare secrets/vars still need production values.
 - API Worker now supports Nest-compatible auth and AI itinerary route names. Remaining route risk: broader Worker/Nest parity still needs full contract coverage.
 - K8s manifests are skeletal: no env/secrets, probes, resources, services, ingress, or rollout strategy.
@@ -85,7 +85,8 @@ Test TripETrip end to end, identify features that work and do not work, list cre
 - [ ] Implement real Razorpay order creation, signature verification, webhooks, refunds, settlement/payout flow, and durable ledger.
 - [x] Replace wildcard API Worker CORS with allowlisted `CORS_ORIGIN`.
 - [x] Align Nest API routes and API Worker routes for auth registration and AI itinerary endpoints.
-- [ ] Replace Cloudflare placeholder config values and set production secrets.
+- [x] Remove committed Cloudflare account/zone placeholder config values.
+- [ ] Set production Cloudflare project settings and secrets.
 
 ### P1: Product Workflows
 

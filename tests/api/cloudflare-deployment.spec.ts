@@ -18,6 +18,15 @@ describe('Cloudflare deployment readiness', () => {
     expect(packageJson.scripts['deploy:cloudflare']).toContain('wrangler deploy');
   });
 
+  it('does not commit Cloudflare account placeholders into deployment configs', () => {
+    for (const path of ['wrangler.jsonc', 'wrangler.api.jsonc', 'wrangler.pages.jsonc']) {
+      const config = readFileSync(path, 'utf8');
+      expect(config).not.toContain('REPLACE_WITH_CF_ACCOUNT_ID');
+      expect(config).not.toContain('REPLACE_WITH_CF_ZONE_ID');
+      expect(config).not.toContain('"zone_id"');
+    }
+  });
+
   it('configures a backend Cloudflare Worker API that reuses existing service logic', () => {
     const apiWrangler = readFileSync('wrangler.api.jsonc', 'utf8');
     const worker = readFileSync('apps/api-worker/src/index.ts', 'utf8');
